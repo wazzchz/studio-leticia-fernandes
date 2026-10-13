@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --cream: #fafaf9;
+  --ink: #1c1917;
+  --rose: #c5a880;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-cream text-ink font-sans antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #c5a880;
+  color: #1c1917;
+}
+
+/* Editorial display face: Syne 600–800, always tight + geometric. */
+.font-display {
+  letter-spacing: -0.02em;
+  font-optical-sizing: auto;
+}
+
+.editorial-rule {
+  background: linear-gradient(90deg, transparent, #c5a880 20%, #c5a880 80%, transparent);
+  height: 1px;
+}
+
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border border-white/60;
+}
+
+.glass-dark {
+  @apply bg-charcoal/60 backdrop-blur-xl border border-white/10;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Focus visibility — WCAG AA */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #a9885e;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
