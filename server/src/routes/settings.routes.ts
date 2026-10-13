@@ -15,7 +15,7 @@ function formatDisplay(digits: string): string {
 }
 
 settingsRouter.get('/', (_req, res) => {
-  const digits = (process.env.WHATSAPP_NUMBER ?? '5575991234567').replace(/\D/g, '');
+  const digits = (process.env.WHATSAPP_NUMBER ?? '557583644779').replace(/\D/g, '');
   const display = process.env.WHATSAPP_DISPLAY ?? formatDisplay(digits);
   res.json({ ok: true, whatsappNumber: digits, whatsappDisplay: display });
 });

@@ -4,9 +4,9 @@ export const STUDIO = {
   shortName: 'Letícia Fernandes',
   city: 'Feira de Santana · BA',
   address: 'Av. Getúlio Vargas — Centro, Feira de Santana/BA',
-  // TODO: substituir pelo número oficial (DDI+DDD+numero, só dígitos)
-  whatsappNumber: '5575991234567',
-  whatsappDisplay: '(75) 99123-4567',
+  // Número oficial do studio (DDI+DDD+numero, só dígitos)
+  whatsappNumber: '557583644779',
+  whatsappDisplay: '(75) 8364-4779',
   instagram: '@studio.leticiafernandes',
   hours: 'Seg–Sáb · 08:00–19:00',
   rating: '5.0',
