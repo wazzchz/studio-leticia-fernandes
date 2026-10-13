@@ -7,6 +7,7 @@ import {
   publicRateLimit,
 } from './middlewares/security.js';
 import { bookingsRouter } from './routes/bookings.routes.js';
+import { settingsRouter } from './routes/settings.routes.js';
 
 const app = express();
 const PORT = Number(process.env.PORT ?? 3333);
@@ -24,6 +25,7 @@ app.get('/api/health', (_req, res) => {
 
 // Public endpoints: rate-limited to 5 req/min per IP
 app.use('/api/bookings', publicRateLimit, bookingsRouter);
+app.use('/api/settings', publicRateLimit, settingsRouter);
 
 // 404 + centralized error handler (never leak internals)
 app.use((_req, res) => res.status(404).json({ ok: false, message: 'Rota não encontrada.' }));

@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials';
 import BookingSection from './components/BookingSection';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import { useStudioSettings } from './hooks/useStudioSettings';
 
 /**
  * Studio Letícia Fernandes — editorial mobile-first composition.
@@ -15,6 +16,8 @@ import WhatsAppFloat from './components/WhatsAppFloat';
  */
 export default function App() {
   const [selectedService, setSelectedService] = useState('');
+  // Número oficial vem da API (GET /api/settings) com fallback local.
+  const settings = useStudioSettings();
 
   const handleBook = useCallback((serviceId: string) => {
     setSelectedService(serviceId);
@@ -38,10 +41,14 @@ export default function App() {
         <ServicesCatalog onBook={handleBook} />
         <Portfolio />
         <Testimonials />
-        <BookingSection preselected={selectedService} onSelectService={setSelectedService} />
+        <BookingSection
+          preselected={selectedService}
+          onSelectService={setSelectedService}
+          whatsappNumber={settings.whatsappNumber}
+        />
       </main>
-      <Footer />
-      <WhatsAppFloat />
+      <Footer whatsappDisplay={settings.whatsappDisplay} />
+      <WhatsAppFloat whatsappNumber={settings.whatsappNumber} />
     </div>
   );
 }

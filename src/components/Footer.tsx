@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Clock, Instagram, MapPin, MessageCircle, Star } from 'lucide-react';
 import { STUDIO } from '../lib/config';
 
-export default function Footer() {
+export default function Footer({ whatsappDisplay }: { whatsappDisplay: string }) {
   return (
     <footer className="bg-ink px-4 pb-28 pt-12 text-cream sm:px-6" aria-label="Rodapé">
       <div className="mx-auto max-w-5xl">
@@ -50,7 +50,7 @@ export default function Footer() {
               transition={{ type: 'spring', stiffness: 400, damping: 22 }}
               className="mt-3 inline-flex min-h-[48px] items-center gap-2 rounded-full bg-rose px-5 py-3 text-sm font-bold text-ink transition-colors hover:bg-rose-soft"
             >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" /> {STUDIO.whatsappDisplay}
+              <MessageCircle className="h-4 w-4" aria-hidden="true" /> {whatsappDisplay}
             </motion.a>
             <p className="mt-3 text-xs leading-relaxed text-cream/50">
               Janela de agendamento: hoje até +{STUDIO.maxAdvanceDays} dias. Domingos fechado.

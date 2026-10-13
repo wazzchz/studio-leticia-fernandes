@@ -18,9 +18,11 @@ import { submitBooking } from '../services/api';
 interface Props {
   preselected: string;
   onSelectService: (id: string) => void;
+  /** Número oficial vindo da API (GET /api/settings). */
+  whatsappNumber: string;
 }
 
-export default function BookingSection({ preselected, onSelectService }: Props) {
+export default function BookingSection({ preselected, onSelectService, whatsappNumber }: Props) {
   const [form, setForm] = useState<BookingPayload>({
     name: '',
     phone: '',
@@ -80,8 +82,8 @@ export default function BookingSection({ preselected, onSelectService }: Props) 
       return;
     }
     setStatus('done');
-    // Open WhatsApp with the clean encoded string
-    window.open(buildWhatsAppURL(payload), '_blank', 'noopener,noreferrer');
+    // Open WhatsApp with the clean encoded string (official API number)
+    window.open(buildWhatsAppURL(payload, whatsappNumber), '_blank', 'noopener,noreferrer');
   }
 
   const inputCls = (bad?: string) =>

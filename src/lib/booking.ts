@@ -130,7 +130,7 @@ export function buildWhatsAppMessage(p: BookingPayload): string {
   return lines.join('\n');
 }
 
-export function buildWhatsAppURL(p: BookingPayload, number = STUDIO.whatsappNumber): string {
+export function buildWhatsAppURL(p: BookingPayload, number: string = STUDIO.whatsappNumber): string {
   return `https://wa.me/${number}?text=${encodeURIComponent(buildWhatsAppMessage(p))}`;
 }
 

@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
-import { STUDIO } from '../lib/config';
 
-export default function WhatsAppFloat() {
+export default function WhatsAppFloat({ whatsappNumber }: { whatsappNumber: string }) {
   return (
     <motion.a
       initial={{ opacity: 0, scale: 0.6 }}
@@ -10,7 +9,7 @@ export default function WhatsAppFloat() {
       transition={{ delay: 0.9, type: 'spring', stiffness: 320, damping: 18 }}
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.92 }}
-      href={`https://wa.me/${STUDIO.whatsappNumber}?text=${encodeURIComponent('Olá, Letícia! Quero agendar um horário ✨')}`}
+      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá, Letícia! Quero agendar um horário ✨')}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Conversar no WhatsApp"
